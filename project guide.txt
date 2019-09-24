@@ -1,0 +1,16 @@
+git diff command to give the different between two file of compare now.
+and give the practical status
+
+git diff --staged utils.txt
+
+git status see the file
+
+git reset utils.txt
+git status
+
+git checkout utils.txt
+
+git checkout .
+
+git log
+

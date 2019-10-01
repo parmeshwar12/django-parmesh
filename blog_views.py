@@ -1,19 +1,20 @@
 from django.shortcurs import render
 from .models import Entry
 from django.views.generic import ListView, DetailView, View, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class HomeView(ListView):
+class HomeView(LoginRequiredMixin ,ListView):
   model = Entry
   template_name = 'entries/index.html'
   context_name = 'blog_entry'
   ordering = ['-entry_date']
   paginate_by = 3
   
- class EntryView(DetailView):
+ class EntryView(LoginRequiredMixin ,DetailView):
   model = Entry
   template_name = 'entries/detail.html'
   
- class EntryCreateView(CreateView):
+ class EntryCreateView(LoginRequiredMixin ,CreateView):
   model = Entry
   template_name = 'entries/entry_create.html'
   fields = ['entry_title','entry_text']
